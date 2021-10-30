@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %} {% block content %}
+<div class="container mt-5">
+    <h1 class="text-warning mb-5 border-bottom">CONTACT US</h1>
+    <div class="row text-white mb-5">
+        <p class="mx-auto mb-5">
+            Do you have any questions? Please do not hesitate to contact. I will come
+            back to you within a matter of hours to help you.
+        </p>
+        <div class="col-sm-9 mb-5">
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+
+            <form action="" method="post">
+            {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Your Name</label>
+                        <input type="text" class="form-control" id="inputName" name="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Your Email *</label>
+                        <input type="email" class="form-control" id="inputEmail" name="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputSubject">Your Subject</label>
+                    <input type="text" class="form-control" id="inputSubject" name="Subject">
+                </div>
+                <div class="mb-3">
+                    <label for="inputTextarea">Your message *</label>
+                    <textarea class="form-control" id="inputTextarea" name="Message" required></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Sent</button>
+            </form>
+
+        </div>
+        <div class="col-sm-3 text-center">
+            <ul class="list-unstyle">
+                <li>
+                    <i class="fas fa-map-marker-alt fa-2x i-color"></i>
+                    <p>Bahuwari, Birgunj, Nepal</p>
+                </li>
+                <li>
+                    <i class="fas fa-phone mt-4 fa-2x i-color"></i>
+                    <p>+ 977 9845097734</p>
+                    <p>+ 977 9807148155</p>
+                </li>
+                <li>
+                    <i class="fas fa-envelope mt-4 fa-2x i-color"></i>
+                    <p>mdabdussamad33@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="text-center bg-warning offset-4 p-1 form-control mb-8" style="width:15%;">
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter btn-outline-info mr-3 fa-2x"></i></a>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f btn-outline-primary mr-3 fa-2x"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram btn-outline-danger mr-3 fa-2x"></i></a>
+    <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble btn-outline-dark mr-3 fa-2x"></i></a>
+</div>
+{% endblock content %}
